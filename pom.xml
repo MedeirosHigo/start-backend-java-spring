@@ -9,10 +9,17 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>projet-spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
+	<packaging>pom</packaging>
+	<name>projet-backend</name>
 	<description>backend exercices</description>
+
+	<modules>
+		<module>core</module>
+		<module>api</module>
+	</modules>
+
 	<url/>
 	<licenses>
 		<license/>
@@ -89,6 +96,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<mainClass>com.example.api.ApiApplication</mainClass>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
