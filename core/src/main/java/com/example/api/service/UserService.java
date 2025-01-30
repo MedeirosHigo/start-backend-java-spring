@@ -3,6 +3,7 @@ package com.example.api.service;
 import com.example.api.model.User;
 import com.example.api.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class UserService {
+    @Autowired
     private final UserRepository userRepository;
 
     public List<User> listAllUsers(){
@@ -27,12 +29,11 @@ public class UserService {
     public void deleteUserById(Long id){
         userRepository.deleteById(id);
     }
-
-    public User updateUser(Long id, User updateUser){
+    public User updateUser(Long id, User userMod){
        User existingUser = userRepository.findById(id).orElseThrow();
 
-        existingUser.setName(updateUser.getName());
-        existingUser.setEmail(updateUser.getEmail());
+        existingUser.setName(userMod.getName());
+        existingUser.setEmail(userMod.getEmail());
 
        return userRepository.save(existingUser);
     }
